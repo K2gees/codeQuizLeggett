@@ -1,29 +1,85 @@
-var startBtn = document.querySelector("#start-btn")
-var questionContainer = document.querySelector(".question-container")
-var countDownTimer = document.createElement("div");
-countDownTimer.className = "time-remaining";
-
-
-startBtn.addEventListener("click", function(){
-    console.log("clicked")
-questionContainer.setAttribute("style", "display: block !important")
-})
-
-// Create Question Array
-var questionArr = [
+//Questions
+let = questions = [
     {
-        questionTitle: "Question ABC",
-        choices:Array,
-        answer: "Blah"
+        id: 1,
+        question: "Which of the following is not considered a JavaScript operator?",
+        answer: "this",
+        options: [
+            "new",
+            "this",
+            "delete",
+            "typeof"
+        ]
     },
     {
-        questionTitle: "Question ABC",
-        choices:Array,
-        answer: "Blah"
+        id: 2,
+        question: "Which of the following best describes JavaScript?",
+        answer: "an object-oriented scripting language.",
+        options: [
+            "a low-level programming language.",
+            "a scripting language precompiled in the browser.",
+            " a compiled scripting language.",
+            "an object-oriented scripting language."
+        ]
+    },
+    {
+        id: 3,
+        question: "JavaScript entities start with _______ and end with _________.",
+        answer: "Ampersand, semicolon",
+        options: [
+            "Semicolon, colon",
+            "Semicolon, Ampersand",
+            "Ampersand, colon",
+            "Ampersand, semicolon"
+        ]
+    },
+    {
+        id: 4,
+        question: "What are variables used for in JavaScript Programs?",
+        answer: "Storing numbers, dates, or other values",
+        options: [
+            "Storing numbers, dates, or other values",
+            "Varying randomly",
+            "Causing high-school algebra flashbacks",
+            "None of the above"
+        ]
+    },
+    {
+        id: 5,
+        question: "What is the correct JavaScript syntax to write 'Hello World'?",
+        answer: "document.write('Hello World')",
+        options: [
+            "System.out.println('Hello World')",
+            "println ('Hello World')",
+            "document.write('Hello World')",
+            "response.write('Hello World')"
+        ]
     },
 
-]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+function submitForm(e) {
+    e.preventDefault();
+    var name = document.forms["welcome-form"]["name"].value;
+
+    //store player names
+    sessionStorage.setItem("name", name);
+
+    location.href ="quiz.html"
+    console.log (name)
+}
 //Create score for each correct answer
 
 //Subtract time for each incorrect answer
