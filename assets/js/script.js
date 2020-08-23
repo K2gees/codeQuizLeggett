@@ -63,7 +63,7 @@ let questions = [
 
 function submitForm(e) {
     e.preventDefault();
-    var name = document.forms["welcome-form"]["name"].value;
+    let name = document.forms["welcome-form"]["name"].value;
 
     //store player names
     sessionStorage.setItem("name", name);
@@ -72,18 +72,53 @@ function submitForm(e) {
 }
 
 let questionCount = 0;
+let point = 0;
 
 function next() {
-    questionCount++;
-    show(questionCount);
+
+  let userAnswer = document.querySelector("li.option.active").innerHTML;
+
+  //check answer by user
+  if (userAnswer == questions[questionCount].answer) {
+    point += 20;
+    sessionStorage.setItem("points", point);
+  } 
+  questionCount++;
+  show(questionCount);
 
 }
 
 function show(count){
     let question = document.getElementById("questions");
 
-    question.innerHTML = "<h2>" + questions[count].question  + "</h2>";
+    // question.innerHTML = "<h2>" + questions[count].question  + "</h2>";
+    question.innerHTML = `<h2>${questions[count].question}</h2>
+    <ul class="option-group">           
+    <li class="option">${questions[count].options[0]}</li>
+    <li class="option">${questions[count].options[1]}</li>
+    <li class="option">${questions[count].options[2]}</li>
+    <li class="option">${questions[count].options[3]}</li>
+    </ul> 
+    
+    `;
 
+    toggleActive();
+}
+function toggleActive(){
+    let option = document.querySelectorAll("li.option");
+
+    for(let i=0; i< option.length; i++) {
+        option[i].onclick = function() {
+            for (let j=0; j< option.length; j++) {
+                if (option[j].classList.contains("active")) {
+                        option[j].classList.remove("active");
+                    
+                }       
+            }
+            option[i].classList.add("active");
+
+        }
+    }
 }
 //Create score for each correct answer
 

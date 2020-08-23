@@ -130,3 +130,7 @@ body {
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
     border: none;
 }
+.active {
+    background-color: #341f97;
+    color: #fff !important;
+}
