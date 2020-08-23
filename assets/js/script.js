@@ -1,5 +1,9 @@
+window.onload = function(){
+    show(0);
+}
+
 //Questions
-let = questions = [
+let questions = [
     {
         id: 1,
         question: "Which of the following is not considered a JavaScript operator?",
@@ -54,21 +58,8 @@ let = questions = [
             "document.write('Hello World')",
             "response.write('Hello World')"
         ]
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+];
 
 function submitForm(e) {
     e.preventDefault();
@@ -78,7 +69,21 @@ function submitForm(e) {
     sessionStorage.setItem("name", name);
 
     location.href ="quiz.html"
-    console.log (name)
+}
+
+let questionCount = 0;
+
+function next() {
+    questionCount++;
+    show(questionCount);
+
+}
+
+function show(count){
+    let question = document.getElementById("questions");
+
+    question.innerHTML = "<h2>" + questions[count].question  + "</h2>";
+
 }
 //Create score for each correct answer
 
