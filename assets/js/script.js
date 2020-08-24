@@ -80,7 +80,8 @@ function next() {
     if (userAnswer == questions[questionCount].answer) {
         point += 20;
         sessionStorage.setItem("points", point);
-    }
+    } 
+    
     if (questionCount == questions.length - 1) {
         location.href = "end.html";
         return;
