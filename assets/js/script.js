@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     show(0);
 }
 
@@ -68,31 +68,34 @@ function submitForm(e) {
     //store player names
     sessionStorage.setItem("name", name);
 
-    location.href ="quiz.html"
+    location.href = "quiz.html"
 }
 
 let questionCount = 0;
 let point = 0;
 
 function next() {
+    let userAnswer = document.querySelector("li.option.active").innerHTML;
+    //check answer by user
+    if (userAnswer == questions[questionCount].answer) {
+        point += 20;
+        sessionStorage.setItem("points", point);
+    }
+    if (questionCount == questions.length - 1) {
+        location.href = "end.html";
+        return;
+    }
 
-  let userAnswer = document.querySelector("li.option.active").innerHTML;
-
-  //check answer by user
-  if (userAnswer == questions[questionCount].answer) {
-    point += 20;
-    sessionStorage.setItem("points", point);
-  } 
-  questionCount++;
-  show(questionCount);
+    questionCount++;
+    show(questionCount);
 
 }
 
-function show(count){
+function show(count) {
     let question = document.getElementById("questions");
 
     // question.innerHTML = "<h2>" + questions[count].question  + "</h2>";
-    question.innerHTML = `<h2>${questions[count].question}</h2>
+    question.innerHTML = `<h2>Q${questionCount+1}. ${questions[count].question}</h2>
     <ul class="option-group">           
     <li class="option">${questions[count].options[0]}</li>
     <li class="option">${questions[count].options[1]}</li>
@@ -104,16 +107,16 @@ function show(count){
 
     toggleActive();
 }
-function toggleActive(){
+function toggleActive() {
     let option = document.querySelectorAll("li.option");
 
-    for(let i=0; i< option.length; i++) {
-        option[i].onclick = function() {
-            for (let j=0; j< option.length; j++) {
+    for (let i = 0; i < option.length; i++) {
+        option[i].onclick = function () {
+            for (let j = 0; j < option.length; j++) {
                 if (option[j].classList.contains("active")) {
-                        option[j].classList.remove("active");
-                    
-                }       
+                    option[j].classList.remove("active");
+
+                }
             }
             option[i].classList.add("active");
 

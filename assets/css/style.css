@@ -17,7 +17,6 @@ body {
     background-color: #341f97;
 }
 .welcome-text {
-   
     width: 400px;
 }
 .welcome-form input,
@@ -134,3 +133,14 @@ body {
     background-color: #341f97;
     color: #fff !important;
 }
+.award-icon {
+    font-size: 300px;
+    color: #fff;
+} 
+.user-name,
+.user-points,
+.user-time {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+} 
