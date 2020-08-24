@@ -13,6 +13,10 @@ https://github.com/K2gees/codeQuizLeggett
 //PUBLISHED SITE WILL GO HERE
 
 ## Screenshots
+![Start Quiz](./assets/images/start-quiz.png)
+![Quiz Time](./assets/images/quiz-time.png)
+![Congratulations](./assets/images/congratulations.png)
+
 
 
 ### Closing
