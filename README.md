@@ -10,7 +10,7 @@ Java
 
 ## Website
 https://github.com/K2gees/codeQuizLeggett
-//PUBLISHED SITE WILL GO HERE
+https://k2gees.github.io/codeQuizLeggett/
 
 ## Screenshots
 ![Start Quiz](./assets/images/start-quiz.png)
